@@ -1,0 +1,34 @@
+@import "src/io/hyperify/govm/frontend/styles/govm-variables";
+
+.dashboard-layout {
+
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-items: stretch;
+  align-content: stretch;
+  justify-content: stretch;
+  flex-wrap: wrap;
+
+  width: 1024px;
+  max-width: 98vw;
+
+  & > .dashboard-layout-nav {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  & > .dashboard-layout-content {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+}

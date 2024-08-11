@@ -1,0 +1,36 @@
+@import "src/io/hyperify/govm/frontend/styles/govm-variables";
+
+.not-found-view {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  article {
+
+    max-width: 1150px;
+    padding: 24px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    h1 {
+      margin: 1em 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin: 1em 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin: 1em 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  }
+
+}

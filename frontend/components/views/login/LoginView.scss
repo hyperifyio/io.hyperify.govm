@@ -1,0 +1,26 @@
+@import "../../../styles/govm-variables";
+
+.login-view {
+
+  box-sizing: border-box;
+  padding: 12px;
+  margin: 0;
+
+  & > .login-view-title {
+    text-align: center;
+  }
+
+  & > .login-view-form {
+    text-align: center;
+
+    & > .login-view-button {
+      margin: 0 auto;
+    }
+
+    & > .login-view-error {
+      margin: 32px 0;
+    }
+
+  }
+
+}

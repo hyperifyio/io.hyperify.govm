@@ -1,0 +1,194 @@
+//BUTTONS
+$button-font: "redhat-medium";
+$button-font-size: 16px;
+$button-font-line-height: 21px;
+
+//NAV
+$nav-font-color: #101d25;
+$nav-font-color-active: #1689d0;
+$nav-font-size: 15px;
+$nav-font-family: "redhat-semi-bold";
+$nav-font-family-bold: "redhat-bold";
+
+//TEKSTIT
+
+$font-weight-800: 800;
+
+$text-font-color: #1B2D3B;
+
+$h1-font: "redhat-extra-bold";
+$h1-font-size: 42px;
+$h1-font-line-height: 49px;
+
+$h2-font: "redhat-extra-bold";
+$h2-font-line-height: 44px;
+$h2-font-size: 36px;
+
+$h3-font: "redhat-medium";
+$h3-font-size: 27px;
+$h3-font-line-height: 23px;
+
+$h4-font: "redhat-extra-bold";
+$h4-font-size: 22px;
+$h4-font-line-height: 29px;
+
+$h5-font: "redhat-bold";
+$h5-font-size: 18px;
+$h5-font-line-height: 33px;
+
+$table-title-2-font: "redhat-extra-bold";
+$table-title-3-font: "redhat-semi-bold";
+$table-title-2-size: 14px;
+$table-title-2-line-height: 26px;
+
+$table-title-font: "redhat-bold";
+$table-title-size: 25px;
+$table-title-line-height: 33px;
+
+$p-newsletter-font: "redhat-medium";
+
+$p-description-font: "redhat-medium";
+$description-font-size: 18px;
+
+$p-font: "redhat";
+$p-font-size: 18px;
+$p-font-line-height: 23px;
+$p-letter-spacing: 0px;
+
+$p2-title-font: "redhat-bold";
+$p2-font: "redhat-semi-bold";
+$p2-font-size: 14px;
+$p2-font-line-height: 20px;
+$p2-letter-spacing: 0px;
+
+$a-font: "redhat-bold";
+$a-font-size: 13px;
+$a-font-line-height: 20px;
+$a-letter-spacing: 0px;
+
+$price-font: "redhat-bold";
+$price-font-size: 40px;
+$price-font-line-height: 53px;
+$p-letter-spacing: 0px;
+
+
+
+//FOOTER
+
+$footer-font-color: #CADAE5;
+$footer-font-family: "redhat-semi-bold";
+
+$dark-font-color: #FFFFFF;
+
+//COLORS
+
+$table-border-color: #8D98A0;
+
+$backround-light-blue: #f0f4f7;
+$backround-light-dark-blue: #1b2d3b;
+
+$white: #ffffff;
+$black: #101d25;
+
+$background: #1B2D3B;
+
+$grey: #b0b8be;
+$blue: #1689d0;
+$light-blue: #cadae5;
+$footer-logo: #ffffff;
+
+//animaatio
+$transition_main: 1s;
+
+$dark-blue: #181F31;
+
+//DARK LIGHT THEME
+
+:root {
+  //colors
+  --background: #f0f4f7;
+  --background-darker: #1b2d3b;
+  --light-blue:#E7EDF2;
+  --blue: #1689d0;
+  --newsletter-bgcolor: #FFFFFF;
+
+  --table-border: #B0B8BE;
+
+  //buttons
+  --button-white-bgcolor: #E7EDF2;
+
+  //fonts and logos
+  --header-logo: #101d25;
+  --nav-font-color: #101d25;
+  --text-font-color: #1B2D3B;
+  --nav-font-dark-color: #ffffff;
+
+
+  /** light mode  day night toggle**/
+  --light-background: #101d25;
+  --light-border: #101d25;
+  --light-color: #101d25;
+  --light-white-background: #ffffff;
+  --light-white-border: #ffffff;
+
+  --dark-color: #101d25;
+}
+
+[data-theme="dark"] {
+  --background: #000c1a;
+  --background-darker: #181F31;
+  --light-blue:#181F31;
+  --blue: #1689d0;
+  --newsletter-bgcolor: #181F31;
+
+  //buttons
+  --button-white-bgcolor:#181F31;
+  //fonts and icons
+  --header-logo: #ffffff;
+  --nav-font-color: #ffffff;
+  --text-font-color: #FFFFFF;
+  --nav-font-dark-color: #101d25;
+
+   /** light mode  day night toggle**/
+   //--light-background: #101d25;
+   --light-border: #1689D0;
+   --light-color: #1689D0;
+
+  //$white: #ffffff;
+
+  /*--blue-border: #5d6baa;
+  --blue-color: #6b7abb;
+  --yellow-background: #fffaa8;
+  --yellow-border: #f5eb71;*/
+
+  /** dark mode day night toggle**/
+  --dark-background: #1689D0;
+  --dark-border: #1689D0;
+  --dark-color: #1689D0;
+  //--gray-border: #e8e8ea;
+  //--gray-dots: #e8e8ea;
+  --white: #ffffff;
+}
+
+//FONTIT
+@font-face {
+  font-family: "redhat";
+  src: url("../assets/fonts/RedHatDisplay-Regular.ttf");
+}
+@font-face {
+  font-family: "redhat-bold";
+  src: url("../assets/fonts/RedHatDisplay-Bold.ttf");
+}
+@font-face {
+  font-family: "redhat-semi-bold";
+  src: url("../assets/fonts/RedHatDisplay-SemiBold.ttf");
+}
+@font-face {
+  font-family: "redhat-extra-bold";
+  src: url("../assets/fonts/RedHatDisplay-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "redhat-medium";
+  src: url("../assets/fonts/RedHatDisplay-Medium.ttf");
+}
+

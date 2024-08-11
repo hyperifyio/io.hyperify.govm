@@ -1,0 +1,16 @@
+{
+  "common.siteName"                 : "govm",
+  "common.companyName"              : "Sendanor",
+  "common.logout"                   : "Logout",
+  "app.copyright"                   : "Copyright {{COPYRIGHT_YEAR}} Sendanor",
+  "dashboardMenu.nav.main"          : "Main",
+  "loginView.title"                 : "Login",
+  "loginView.email.label"           : "Email",
+  "loginView.email.placeholder"     : "user@example.fi",
+  "loginView.password.label"        : "Password",
+  "loginView.password.placeholder"  : "*******",
+  "loginView.submitButton.label"    : "Login",
+  "loginView.errorMessage"          : "Login failed. Try again.",
+  "notFoundView.title"              : "Not Found",
+  "notFoundView.description"        : "Page was not found"
+}

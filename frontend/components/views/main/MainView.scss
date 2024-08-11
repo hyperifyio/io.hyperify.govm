@@ -1,0 +1,29 @@
+@import "src/io/hyperify/govm/frontend/styles/govm-variables";
+
+.main-view {
+  //max-width: 1920px;
+  width: 100%;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  transition: $transition_main;
+
+  article {
+    transition: $transition_main;
+    //background-color: #e7edf2;
+    background-color: var(--light-blue);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+}
