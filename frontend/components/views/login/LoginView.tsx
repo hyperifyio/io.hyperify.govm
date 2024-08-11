@@ -52,8 +52,8 @@ export function LoginView ( props: LoginViewProps) {
 
     const submitCallback = useCallback(() => {
         setError(false);
-        EmailAuthSessionService.authenticateEmailAddressWithPassword(email, password).then( (token: EmailTokenDTO) => {
-
+        EmailAuthSessionService.authenticateEmailAddressWithPassword(email, password).then( (_token: EmailTokenDTO) => {
+            navigate(INDEX_ROUTE);
         }).catch((err) => {
             LOG.error(`Error: `, err);
             setError(true);
@@ -62,6 +62,7 @@ export function LoginView ( props: LoginViewProps) {
         email,
         password,
         setError,
+        navigate,
     ]);
 
     const [isEmailValid] = useEmailValidator(email, true);
