@@ -1,6 +1,6 @@
 @import "src/io/hyperify/govm/frontend/styles/govm-variables";
 
-.main-view {
+.server-view {
   //max-width: 1920px;
   width: 100%;
 
@@ -24,6 +24,30 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+  }
+
+  & > .server-view-details {
+
+    & > .server-view-actions {
+
+      width: 100%;
+
+      box-sizing: border-box;
+      margin: 0;
+      padding: $view-padding;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+
+      & > .server-view-action-button {
+        margin: 0 6px 6px 6px;
+      }
+
+    }
+
   }
 
 }

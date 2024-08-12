@@ -164,6 +164,7 @@
     &.hg-button-primary {
       color: $white;
       background-color: $blue;
+      min-width: 156px;
     }
 
     &.hg-button-secondary {
@@ -175,7 +176,7 @@
       color: var(--text-font-color);
       border: 2px solid var(--text-font-color);
       text-align: center;
-      width: 156px;
+      min-width: 156px;
       height: 41px;
       text-decoration: none;
       padding: 8px 16px;

@@ -11,11 +11,13 @@ import { useI18nWithLanguageService } from "../../../../frontend/hooks/useI18nWi
 import { useDefaultLanguage } from "../../../../frontend/hooks/useDefaultLanguage";
 import { useRouteServiceWithNavigate } from "../../../../frontend/hooks/useRouteServiceWithNavigate";
 import {
+    DEPLOY_SERVER_ROUTE,
     INDEX_ROUTE,
     LOGIN_ROUTE,
     MAIN_ROUTE,
+    SERVER_LIST_ROUTE,
+    SERVER_ROUTE,
 } from "../../../core/constants/route";
-import { DashboardMenu } from "../common/myDashboardMenu/DashboardMenu";
 
 // NOTE! The order of these imports is essential -- it declares the order of SCSS files!
 // So, put components before layouts, and layouts before views. Otherwise, layout SCSS rules will
@@ -28,7 +30,10 @@ import { RootLayout } from "../layouts/root/RootLayout";
 // Views (see note above!)
 import { MainView } from "../views/main/MainView";
 import { LoginView } from "../views/login/LoginView";
-import { NotFoundView } from "../views/notFoundView/NotFoundView";
+import { NotFoundView } from "../views/notFound/NotFoundView";
+import { DeployServerView } from "../views/servers/deploy/DeployServerView";
+import { ServerView } from "../views/servers/server/ServerView";
+import { ServerListView } from "../views/servers/ServerListView";
 
 /**
  * The name for this component is complete legacy.
@@ -65,14 +70,19 @@ export function GoVmApp () {
         path: MAIN_ROUTE,
         element: (
             <RootLayout t={t}>
-                <DashboardLayout nav={(
-                    <DashboardMenu t={t} />
-                )} >
+                <DashboardLayout
+                    // nav={(
+                    //     <DashboardMenu t={t} />
+                    // )}
+                >
                     <Outlet />
                 </DashboardLayout>
             </RootLayout>
         ),
         children: [
+            {path: DEPLOY_SERVER_ROUTE, element: <DeployServerView t={t} />},
+            {path: SERVER_ROUTE, element: <ServerView t={t} />},
+            {path: SERVER_LIST_ROUTE, element: <ServerListView t={t} />},
             {path: MAIN_ROUTE, element: <MainView t={t} />},
             {path: '*', element: <NotFoundView t={t} />},
         ]

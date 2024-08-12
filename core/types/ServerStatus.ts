@@ -1,0 +1,48 @@
+// Copyright (c) 2024. Heusala Group Oy <info@heusalagroup.fi>. All rights reserved.
+
+import {
+    explainEnum,
+    isEnum,
+    parseEnum,
+    stringifyEnum,
+} from "../../../core/types/Enum";
+import {
+    explainNot,
+    explainOk,
+    explainOr,
+} from "../../../core/types/explain";
+import { isUndefined } from "../../../core/types/undefined";
+
+export enum ServerStatus {
+    UNINITIALIZED = "uninitialized",
+    DEPLOYING = "deploying",
+    STOPPED = "stopped",
+    STARTING = "starting",
+    STOPPING = "stopping",
+    STARTED = "started",
+    DELETING = "deleting",
+}
+
+export function isServerStatus (value: unknown) : value is ServerStatus {
+    return isEnum(ServerStatus, value);
+}
+
+export function explainServerStatus (value : unknown) : string {
+    return explainEnum("ServerStatus", ServerStatus, isServerStatus, value);
+}
+
+export function stringifyServerStatus (value : ServerStatus) : string {
+    return stringifyEnum(ServerStatus, value);
+}
+
+export function parseServerStatus (value: any) : ServerStatus | undefined {
+    return parseEnum(ServerStatus, value) as ServerStatus | undefined;
+}
+
+export function isServerStatusOrUndefined (value: unknown): value is ServerStatus | undefined {
+    return isUndefined(value) || isServerStatus(value);
+}
+
+export function explainServerStatusOrUndefined (value: unknown): string {
+    return isServerStatusOrUndefined(value) ? explainOk() : explainNot(explainOr(['ServerStatus', 'undefined']));
+}

@@ -3,7 +3,7 @@
 .login-view {
 
   box-sizing: border-box;
-  padding: 12px;
+  padding: $view-padding;
   margin: 0;
 
   & > .login-view-title {

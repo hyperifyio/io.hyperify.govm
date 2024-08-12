@@ -26,7 +26,7 @@ export function MainView ( props: MainIndexViewProps) {
     }
     return (
         <div className={MAIN_VIEW_CLASS_NAME}>
-            Logged in as {session?.email}
+            Main View. Logged in as {session?.email}
         </div>
     );
 }

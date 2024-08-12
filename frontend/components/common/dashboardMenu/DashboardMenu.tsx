@@ -5,9 +5,13 @@ import { TranslationFunction } from "../../../../../core/types/TranslationFuncti
 import { Button } from "../../../../../frontend/components/button/Button";
 import { useLogoutCallback } from "../../../../../frontend/hooks/useLogoutCallback";
 import { DASHBOARD_MENU_CLASS_NAME } from "../../../../core/constants/className";
-import { MAIN_ROUTE } from "../../../../core/constants/route";
+import {
+    MAIN_ROUTE,
+    SERVER_LIST_ROUTE,
+} from "../../../../core/constants/route";
 import {
     T_DASHBOARD_MENU_NAV_MAIN_LABEL,
+    T_DASHBOARD_MENU_NAV_SERVERS_LABEL,
     T_LOGOUT_LABEL,
 } from "../../../../core/constants/translation";
 import "./DashboardMenu.scss";
@@ -29,6 +33,7 @@ export function DashboardMenu ( props: DashboardMenuProps) {
         }>
             <section className={DASHBOARD_MENU_CLASS_NAME+'-section'}>
                 <NavLink end className={DASHBOARD_MENU_CLASS_NAME+"-link"} to={MAIN_ROUTE}>{t(T_DASHBOARD_MENU_NAV_MAIN_LABEL)}</NavLink>
+                <NavLink end className={DASHBOARD_MENU_CLASS_NAME+"-link"} to={SERVER_LIST_ROUTE}>{t(T_DASHBOARD_MENU_NAV_SERVERS_LABEL)}</NavLink>
                 <Button
                     className={"button"}
                     click={logoutCallback}

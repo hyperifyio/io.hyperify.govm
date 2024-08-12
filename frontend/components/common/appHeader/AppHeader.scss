@@ -142,4 +142,44 @@
 
   }
 
+  .app-header-nav-menu {
+
+    max-width: 1920px; //1468+37+117+36 = 1658
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    flex-grow: 3; //väliä vähän
+    text-align: center;
+    align-content: center;
+    justify-content: space-evenly;
+    transition: all 350ms ease-in-out;
+    flex-wrap: wrap;
+
+    & > a,
+    & > a:visited,
+    & > a:active,
+    & > a:hover {
+      color: var(--nav-font-color);
+      text-decoration: none;
+      // margin: 0;
+      font-size: $nav-font-size;
+      font-family: $nav-font-family;
+      margin: 0.5em;
+    }
+
+    & > a:hover {
+      color: $nav-font-color-active;
+    }
+
+    a.activated {
+      color: $blue;
+      text-decoration: none;
+      transition: all 250ms ease-in-out;
+    }
+
+  }
+
 }
