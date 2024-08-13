@@ -9,7 +9,7 @@ export const API_URL = '/api/v1';
 export const SERVER_API_URL = (id: string): string => `/servers/${q(id)}`;
 export const EXECUTE_ACTION_SERVER_API_URL = (id: string, action: ServerAction): string => `/servers/${q(id)}/${action}`;
 export const SERVER_LIST_API_URL = '/servers';
-export const DEPLOY_SERVER_API_URL = '/servers';
+export const ADD_SERVER_API_URL = '/servers';
 
 export const GOVM_AUTHENTICATE_EMAIL_URL : CallbackWithLanguage = (lang: Language) => `${API_URL}/auth?${AuthEmailQueryParam.LANGUAGE}=${q(lang)}`;
 export const GOVM_VERIFY_EMAIL_CODE_URL : CallbackWithLanguage = (lang: Language) => `${API_URL}/auth/code?${AuthEmailQueryParam.LANGUAGE}=${q(lang)}`;

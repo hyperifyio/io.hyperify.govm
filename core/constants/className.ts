@@ -13,4 +13,4 @@ export const APP_FOOTER_CLASS_NAME = 'app-footer';
 export const NAV_MENU_CLASS_NAME = 'nav-menu';
 export const NAV_LINK_CLASS_NAME = 'nav-link';
 export const ACTIVATED_CLASS_NAME = 'activated';
-export const DEPLOY_SERVER_VIEW_CLASS_NAME = 'deploy-server-view';
+export const ADD_SERVER_VIEW_CLASS_NAME = 'add-server-view';

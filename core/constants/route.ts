@@ -8,7 +8,7 @@ export const LOGIN_ROUTE = '/login';
 
 export const MAIN_ROUTE = '/main';
 export const SERVER_LIST_ROUTE = '/main/servers';
-export const DEPLOY_SERVER_ROUTE = '/main/servers/new';
+export const ADD_SERVER_ROUTE = '/main/servers/new';
 export const SERVER_ROUTE = '/main/servers/:name';
 
 export const MENU_ITEMS : MenuItem[] = [

@@ -28,10 +28,10 @@ export const T_SERVER_LIST_VIEW_TABLE_STATUS_LABEL = 'serverListView.table.field
 export const T_SERVER_LIST_VIEW_TABLE_ACTIONS_LABEL = 'serverListView.table.fields.actions.label';
 export const T_SERVER_VIEW_ACTION_BUTTON_LABEL = (action: ServerAction) => `serverView.actionButton.${action}.label`;
 export const T_COMMON_OPEN = 'common.open';
-export const T_SERVER_LIST_VIEW_DEPLOY_BUTTON_LABEL = 'serverListView.deployButton.label';
-export const T_DEPLOY_SERVER_VIEW_TITLE = 'deployServerView.title';
-export const T_DEPLOY_SERVER_VIEW_SERVER_NAME_LABEL = 'deployServerView.fields.name.label';
-export const T_DEPLOY_SERVER_VIEW_SERVER_NAME_PLACEHOLDER = 'deployServerView.fields.name.placeholder';
-export const T_DEPLOY_SERVER_VIEW_SERVER_SUBMIT_BUTTON_LABEL = 'deployServerView.submitButton.label';
-export const T_DEPLOY_SERVER_VIEW_DEPLOY_FAILED_MESSAGE = 'deployServerView.deployFailedMessage';
+export const T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL = 'serverListView.addServerButton.label';
+export const T_ADD_SERVER_VIEW_TITLE = 'addServerView.title';
+export const T_ADD_SERVER_VIEW_SERVER_NAME_LABEL = 'addServerView.fields.name.label';
+export const T_ADD_SERVER_VIEW_SERVER_NAME_PLACEHOLDER = 'addServerView.fields.name.placeholder';
+export const T_ADD_SERVER_VIEW_SERVER_SUBMIT_BUTTON_LABEL = 'addServerView.submitButton.label';
+export const T_ADD_SERVER_VIEW_ADD_FAILED_MESSAGE = 'addServerView.addFailedMessage';
 export const T_SERVER_STATUS = ( status: string) : string => `serverStatus.${status}`;

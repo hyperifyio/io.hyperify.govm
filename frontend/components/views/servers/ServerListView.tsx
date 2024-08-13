@@ -18,7 +18,7 @@ import {
 } from "../../../../core/constants/className";
 import "./ServerListView.scss";
 import {
-    DEPLOY_SERVER_ROUTE,
+    ADD_SERVER_ROUTE,
     GET_SERVER_ROUTE,
     LOGIN_ROUTE,
 } from "../../../../core/constants/route";
@@ -28,7 +28,7 @@ import { TableRow } from "../../../../../frontend/components/table/TableRow";
 import { TableColumn } from "../../../../../frontend/components/table/TableColumn";
 import {
     T_COMMON_OPEN,
-    T_SERVER_LIST_VIEW_DEPLOY_BUTTON_LABEL,
+    T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL,
     T_SERVER_LIST_VIEW_NO_RESULTS_FOUND,
     T_SERVER_LIST_VIEW_TABLE_ACTIONS_LABEL,
     T_SERVER_LIST_VIEW_TABLE_NAME_LABEL,
@@ -64,7 +64,7 @@ export function ServerListView ( props: ServerListViewProps) {
     );
     const onDeployClick = useCallback(
         () => {
-            RouteService.setRoute( DEPLOY_SERVER_ROUTE );
+            RouteService.setRoute( ADD_SERVER_ROUTE );
         },
         [
         ],
@@ -121,7 +121,7 @@ export function ServerListView ( props: ServerListViewProps) {
             <Button
                 click={ onDeployClick }
                 style={ ButtonStyle.PRIMARY }
-            >{ t( T_SERVER_LIST_VIEW_DEPLOY_BUTTON_LABEL ) }</Button>
+            >{ t( T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL ) }</Button>
 
         </div>
     );

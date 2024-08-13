@@ -11,7 +11,7 @@ import { useI18nWithLanguageService } from "../../../../frontend/hooks/useI18nWi
 import { useDefaultLanguage } from "../../../../frontend/hooks/useDefaultLanguage";
 import { useRouteServiceWithNavigate } from "../../../../frontend/hooks/useRouteServiceWithNavigate";
 import {
-    DEPLOY_SERVER_ROUTE,
+    ADD_SERVER_ROUTE,
     INDEX_ROUTE,
     LOGIN_ROUTE,
     MAIN_ROUTE,
@@ -31,7 +31,7 @@ import { RootLayout } from "../layouts/root/RootLayout";
 import { MainView } from "../views/main/MainView";
 import { LoginView } from "../views/login/LoginView";
 import { NotFoundView } from "../views/notFound/NotFoundView";
-import { DeployServerView } from "../views/servers/deploy/DeployServerView";
+import { AddServerView } from "../views/servers/add/AddServerView";
 import { ServerView } from "../views/servers/server/ServerView";
 import { ServerListView } from "../views/servers/ServerListView";
 
@@ -80,7 +80,7 @@ export function GoVmApp () {
             </RootLayout>
         ),
         children: [
-            {path: DEPLOY_SERVER_ROUTE, element: <DeployServerView t={t} />},
+            {path: ADD_SERVER_ROUTE, element: <AddServerView t={t} />},
             {path: SERVER_ROUTE, element: <ServerView t={t} />},
             {path: SERVER_LIST_ROUTE, element: <ServerListView t={t} />},
             {path: MAIN_ROUTE, element: <MainView t={t} />},

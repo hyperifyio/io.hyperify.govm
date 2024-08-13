@@ -23,6 +23,15 @@ export enum ServerStatus {
     DELETING = "deleting",
 }
 
+export function isPassiveServerStatus (value: ServerStatus) : boolean {
+    switch (value) {
+        case ServerStatus.UNINITIALIZED: return true;
+        case ServerStatus.STOPPED: return true;
+        case ServerStatus.STARTED: return true;
+        default: return false;
+    }
+}
+
 export function isServerStatus (value: unknown) : value is ServerStatus {
     return isEnum(ServerStatus, value);
 }

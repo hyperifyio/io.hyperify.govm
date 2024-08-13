@@ -9,7 +9,7 @@ import { LogService } from "../../core/LogService";
 import { LogLevel } from "../../core/types/LogLevel";
 import {
     API_URL,
-    DEPLOY_SERVER_API_URL,
+    ADD_SERVER_API_URL,
     EXECUTE_ACTION_SERVER_API_URL,
     SERVER_API_URL,
     SERVER_LIST_API_URL,
@@ -83,22 +83,22 @@ export class GoVmClientService {
     }
 
     /**
-     * Deploy a new server
+     * Add a new server
      */
-    public static async deployServer (
+    public static async addServer (
         serverName : string,
         token      : EmailTokenDTO | SmsTokenDTO
     ) : Promise<ServerListDTO> {
         const sessionToken = GoVmClientService._getSessionToken(token);
         const response : ReadonlyJsonAny | undefined = await HttpService.postJson(
-            this._apiUrl + DEPLOY_SERVER_API_URL,
+            this._apiUrl + ADD_SERVER_API_URL,
             {
                 name: serverName,
             },
             GoVmClientService._createHeaders(sessionToken),
         );
         if (!isServerListDTO(response)) {
-            LOG.debug(`deployServer: response: `, response);
+            LOG.debug(`addServer: response: `, response);
             throw new TypeError(`Response was not ServerListDTO: ${response}`);
         }
         return response;
