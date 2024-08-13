@@ -34,6 +34,7 @@ import {
     T_SERVER_LIST_VIEW_TABLE_NAME_LABEL,
     T_SERVER_LIST_VIEW_TABLE_STATUS_LABEL,
     T_SERVER_LIST_VIEW_TITLE,
+    T_SERVER_STATUS,
 } from "../../../../core/constants/translation";
 import { map } from "../../../../../core/functions/map";
 import { ServerDTO } from "../../../../core/types/ServerDTO";
@@ -100,7 +101,7 @@ export function ServerListView ( props: ServerListViewProps) {
                                                     click={ itemClick }
                                                 >
                                                     <TextColumn value={ name } />
-                                                    <TextColumn value={ item?.status } />
+                                                    <TextColumn value={ t(T_SERVER_STATUS(item?.status)) } />
                                                     <TableColumn>
                                                         <Button
                                                             click={ itemClick }
