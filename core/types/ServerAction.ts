@@ -14,6 +14,7 @@ import {
 import { isUndefined } from "../../../core/types/undefined";
 
 export enum ServerAction {
+    UNDEFINED = "undefined",
     DEPLOY = "deploy",
     START = "start",
     STOP = "stop",

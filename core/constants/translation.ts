@@ -20,7 +20,7 @@ export const T_SERVER_VIEW_TITLE = 'serverView.title';
 export const T_SERVER_VIEW_NAME_LABEL = 'serverView.name.label';
 export const T_SERVER_VIEW_STATUS_LABEL = 'serverView.status.label';
 export const T_SERVER_VIEW_NO_RESULTS_FOUND = 'serverView.noResultsFound';
-export const T_SERVER_VIEW_ACTION_FAILED_MESSAGE = 'serverView.actionFailedMessage';
+export const T_SERVER_VIEW_ACTION_FAILED_MESSAGE = (item: ServerAction) => `serverView.actionFailedMessage.${item}`;
 export const T_SERVER_LIST_VIEW_TITLE = 'serverListView.title';
 export const T_SERVER_LIST_VIEW_NO_RESULTS_FOUND = 'serverListView.noResultsFound';
 export const T_SERVER_LIST_VIEW_TABLE_NAME_LABEL = 'serverListView.table.fields.name.label';

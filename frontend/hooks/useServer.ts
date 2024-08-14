@@ -33,7 +33,7 @@ export function useServer (
                     setItem( foundItem );
                 }).catch((err) => {
                     if (isRequestError(err) && err.status === 404) {
-                        LOG.error(`InventoryItem not found `, err);
+                        LOG.error(`Server not found `, err);
                         setItem(null);
                     } else if (isRequestError(err) && err.status === 401) {
                         LOG.error(`Authentication failed, clearing session token: `, err);

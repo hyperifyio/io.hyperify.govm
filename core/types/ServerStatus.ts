@@ -20,7 +20,13 @@ export enum ServerStatus {
     STARTING = "starting",
     STOPPING = "stopping",
     STARTED = "started",
+    BLOCKED = "blocked",
+    PAUSED = "paused",
+    CRASHED = "crashed",
+    SUSPENDED = "suspended",
+    UNKNOWN = "unknown",
     DELETING = "deleting",
+    DELETED = "deleted",
 }
 
 export function isPassiveServerStatus (value: ServerStatus) : boolean {
@@ -28,6 +34,9 @@ export function isPassiveServerStatus (value: ServerStatus) : boolean {
         case ServerStatus.UNINITIALIZED: return true;
         case ServerStatus.STOPPED: return true;
         case ServerStatus.STARTED: return true;
+        case ServerStatus.CRASHED: return true;
+        case ServerStatus.SUSPENDED: return true;
+        case ServerStatus.DELETED: return true;
         default: return false;
     }
 }

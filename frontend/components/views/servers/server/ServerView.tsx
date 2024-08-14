@@ -29,9 +29,9 @@ import {
     SERVER_LIST_ROUTE,
 } from "../../../../../core/constants/route";
 import {
-    T_ADD_SERVER_VIEW_ADD_FAILED_MESSAGE,
     T_SERVER_STATUS,
     T_SERVER_VIEW_ACTION_BUTTON_LABEL,
+    T_SERVER_VIEW_ACTION_FAILED_MESSAGE,
     T_SERVER_VIEW_NAME_LABEL,
     T_SERVER_VIEW_NO_RESULTS_FOUND,
     T_SERVER_VIEW_STATUS_LABEL,
@@ -61,7 +61,7 @@ export function ServerView ( props: ServerViewProps) {
     const name = params?.name;
     const navigate = useNavigate();
     const session = useAuthSession();
-    const [lastAction, setLastAction] = useState<ServerAction|undefined>(undefined);
+    const [lastAction, setLastAction] = useState<ServerAction>(ServerAction.UNDEFINED);
     const [hasError, setHasError] = useState<boolean>(false);
     const [item, refreshItemCallback] = useServer(name);
     const itemStatus = parseServerStatus(item?.status) ?? ServerStatus.UNINITIALIZED;
@@ -72,7 +72,7 @@ export function ServerView ( props: ServerViewProps) {
 
     const translationParams = {
         NAME: name,
-        ACTION : lastAction ?? 'n/a',
+        ACTION : lastAction,
     };
 
     const onActionClick = useCallback( (action: ServerAction) => {
@@ -172,7 +172,7 @@ export function ServerView ( props: ServerViewProps) {
                     </>
                 : null}
                 {hasError ? <>
-                    <p>{t(T_ADD_SERVER_VIEW_ADD_FAILED_MESSAGE, translationParams)}</p>
+                    <p>{t(T_SERVER_VIEW_ACTION_FAILED_MESSAGE(lastAction), translationParams)}</p>
                 </> : null}
                 {isPassiveStatus ? null : (
                     <Loader />
