@@ -50,4 +50,31 @@
 
   }
 
+  & > .server-view-console {
+
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    height: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    & > .server-view-close-vnc-button {
+      margin-top: 2em;
+    }
+
+    & > iframe {
+      width: 90vw;
+      max-width: 1024px;
+      //height: auto;
+    }
+
+  }
+
 }

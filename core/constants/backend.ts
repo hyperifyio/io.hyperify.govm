@@ -8,6 +8,8 @@ import { ServerAction } from "../types/ServerAction";
 export const API_URL = '/api/v1';
 export const SERVER_API_URL = (id: string): string => `/servers/${q(id)}`;
 export const EXECUTE_ACTION_SERVER_API_URL = (id: string, action: ServerAction): string => `/servers/${q(id)}/${action}`;
+export const OPEN_SERVER_VNC_API_URL = (id: string): string => `/servers/${q(id)}/vnc`;
+export const CLOSE_SERVER_VNC_API_URL = (token: string): string => `/api/vnc/${q(token)}`;
 export const SERVER_LIST_API_URL = '/servers';
 export const ADD_SERVER_API_URL = '/servers';
 

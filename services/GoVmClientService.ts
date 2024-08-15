@@ -13,6 +13,8 @@ import {
     EXECUTE_ACTION_SERVER_API_URL,
     SERVER_API_URL,
     SERVER_LIST_API_URL,
+    OPEN_SERVER_VNC_API_URL,
+    CLOSE_SERVER_VNC_API_URL,
 } from "../core/constants/backend";
 import { ServerAction } from "../core/types/ServerAction";
 import {
@@ -23,6 +25,10 @@ import {
     isServerListDTO,
     ServerListDTO,
 } from "../core/types/ServerListDTO";
+import {
+    isVncDTO,
+    VncDTO,
+} from "../core/types/VncDTO";
 
 const AUTHORIZATION_HEADER = 'Authorization';
 
@@ -122,6 +128,46 @@ export class GoVmClientService {
         if (!isServerDTO(response)) {
             LOG.debug(`executeServerAction: response: `, response);
             throw new TypeError(`Response was not ServerDTO: ${response}`);
+        }
+        return response;
+    }
+
+    /**
+     * Execute open VNC on server
+     */
+    public static async openVnc (
+        serverName : string,
+        token      : EmailTokenDTO | SmsTokenDTO
+    ) : Promise<VncDTO> {
+        const sessionToken = GoVmClientService._getSessionToken(token);
+        const response : ReadonlyJsonAny | undefined = await HttpService.postJson(
+            this._apiUrl + OPEN_SERVER_VNC_API_URL(serverName),
+            {
+            },
+            GoVmClientService._createHeaders(sessionToken),
+        );
+        if (!isVncDTO(response)) {
+            LOG.debug(`openVnc: response: `, response);
+            throw new TypeError(`Response was not VncDTO: ${response}`);
+        }
+        return response;
+    }
+
+    /**
+     * Execute close VNC on server
+     */
+    public static async closeVnc (
+        token        : string,
+        sessionToken : EmailTokenDTO | SmsTokenDTO
+    ) : Promise<VncDTO> {
+        const sessionTokenString = GoVmClientService._getSessionToken(sessionToken);
+        const response : ReadonlyJsonAny | undefined = await HttpService.deleteJson(
+            CLOSE_SERVER_VNC_API_URL(token),
+            GoVmClientService._createHeaders(sessionTokenString),
+        );
+        if (!isVncDTO(response)) {
+            LOG.debug(`closeVnc: response: `, response);
+            throw new TypeError(`Response was not VncDTO: ${response}`);
         }
         return response;
     }

@@ -20,6 +20,8 @@ export enum ServerAction {
     STOP = "stop",
     RESTART = "restart",
     DELETE = "delete",
+    OPEN_VNC = "open-vnc",
+    CLOSE_VNC = "close-vnc",
 }
 
 export function isServerAction (value: unknown) : value is ServerAction {

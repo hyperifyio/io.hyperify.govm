@@ -27,6 +27,8 @@ export const T_SERVER_LIST_VIEW_TABLE_NAME_LABEL = 'serverListView.table.fields.
 export const T_SERVER_LIST_VIEW_TABLE_STATUS_LABEL = 'serverListView.table.fields.status.label';
 export const T_SERVER_LIST_VIEW_TABLE_ACTIONS_LABEL = 'serverListView.table.fields.actions.label';
 export const T_SERVER_VIEW_ACTION_BUTTON_LABEL = (action: ServerAction) => `serverView.actionButton.${action}.label`;
+export const T_SERVER_VIEW_OPEN_VNC_BUTTON_LABEL = `serverView.openVncButton.label`;
+export const T_SERVER_VIEW_CLOSE_VNC_BUTTON_LABEL = `serverView.closeVncButton.label`;
 export const T_COMMON_OPEN = 'common.open';
 export const T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL = 'serverListView.addServerButton.label';
 export const T_ADD_SERVER_VIEW_TITLE = 'addServerView.title';
