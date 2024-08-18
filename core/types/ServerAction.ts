@@ -15,13 +15,13 @@ import { isUndefined } from "../../../core/types/undefined";
 
 export enum ServerAction {
     UNDEFINED = "undefined",
+    CREATE = "create",
     DEPLOY = "deploy",
     START = "start",
     STOP = "stop",
     RESTART = "restart",
     DELETE = "delete",
-    OPEN_VNC = "open-vnc",
-    CLOSE_VNC = "close-vnc",
+    CONSOLE = "console",
 }
 
 export function isServerAction (value: unknown) : value is ServerAction {

@@ -73,7 +73,7 @@ export function ServerView ( props: ServerViewProps) {
     const isLoading = item === undefined;
     const [deletingEnabled, setDeletingEnabled] = useState<boolean>(false);
 
-    const hasConsole : boolean = [
+    const hasConsole : boolean = !!item?.permissions?.consoleEnabled && [
         ServerStatus.STARTED,
         ServerStatus.PAUSED,
         ServerStatus.BLOCKED,
@@ -133,7 +133,7 @@ export function ServerView ( props: ServerViewProps) {
             return;
         }
 
-        setLastAction(ServerAction.OPEN_VNC);
+        setLastAction(ServerAction.CONSOLE);
         setHasError(false);
         const token : EmailTokenDTO | SmsTokenDTO | undefined = AuthSessionService.getToken();
         if ( !token ) {
@@ -162,7 +162,7 @@ export function ServerView ( props: ServerViewProps) {
             return;
         }
 
-        setLastAction(ServerAction.CLOSE_VNC);
+        setLastAction(ServerAction.CONSOLE);
         setHasError(false);
         const token : EmailTokenDTO | SmsTokenDTO | undefined = AuthSessionService.getToken();
         if ( !token ) {
@@ -187,19 +187,19 @@ export function ServerView ( props: ServerViewProps) {
 
     // Refresh non-passive statuses
     useEffect(() => {
-
+        let timer : any;
         if (deletingEnabled && notFound) {
             navigate(SERVER_LIST_ROUTE)
+        } else {
+            timer = setInterval(() => {
+                if (deletingEnabled && notFound) {
+                    clearInterval(timer);
+                    timer = undefined;
+                } else {
+                    refreshItemCallback();
+                }
+            }, SERVER_VIEW_FETCH_RETRY_TIMEOUT_ON_PASSIVE_STATES);
         }
-
-        let timer : any = setInterval(() => {
-            if (!(isPassiveStatus || hasConsole)) {
-                refreshItemCallback();
-            } else {
-                clearInterval(timer);
-                timer = undefined;
-            }
-        }, SERVER_VIEW_FETCH_RETRY_TIMEOUT_ON_PASSIVE_STATES);
         return () => {
             if (timer !== undefined) {
                 clearInterval(timer);
@@ -210,7 +210,6 @@ export function ServerView ( props: ServerViewProps) {
         navigate,
         notFound,
         deletingEnabled,
-        isPassiveStatus,
         hasConsole,
         refreshItemCallback,
     ]);

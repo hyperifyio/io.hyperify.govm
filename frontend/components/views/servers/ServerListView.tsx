@@ -39,6 +39,7 @@ import {
 import { map } from "../../../../../core/functions/map";
 import { ServerDTO } from "../../../../core/types/ServerDTO";
 import { useServerList } from "../../../hooks/useServerList";
+import { useServerListDTO } from "../../../hooks/useServerListDTO";
 
 const LOG = LogService.createLogger( 'ServerListView' );
 
@@ -51,9 +52,11 @@ export function ServerListView ( props: ServerListViewProps) {
     const t = props?.t;
     const navigate = useNavigate();
     const session = useAuthSession();
-    const [ list/*, refreshList*/ ] = useServerList();
-    const isLoading = list?.length === undefined;
-    const listCount = list?.length ?? 0;
+    const [ dto/*, refreshList*/ ] = useServerListDTO();
+    const isLoading = dto === undefined;
+    const list = dto?.payload;
+    const permissions = dto?.permissions;
+    const listCount = dto?.payload?.length ?? 0;
     const onItemClick = useCallback(
         ( itemId : string ) => {
             const route = GET_SERVER_ROUTE( itemId );
@@ -63,7 +66,7 @@ export function ServerListView ( props: ServerListViewProps) {
         [
         ],
     );
-    const onDeployClick = useCallback(
+    const onCreateServerClick = useCallback(
         () => {
             RouteService.setRoute( ADD_SERVER_ROUTE );
         },
@@ -119,10 +122,12 @@ export function ServerListView ( props: ServerListViewProps) {
                     ) }</Card>
             </div>
 
-            <Button
-                click={ onDeployClick }
-                style={ ButtonStyle.PRIMARY }
-            >{ t( T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL ) }</Button>
+            {permissions?.createEnabled ? (
+                <Button
+                    click={ onCreateServerClick }
+                    style={ ButtonStyle.PRIMARY }
+                >{ t( T_SERVER_LIST_VIEW_ADD_BUTTON_LABEL ) }</Button>
+            ) : null}
 
         </div>
     );

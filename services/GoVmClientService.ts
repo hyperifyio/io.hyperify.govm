@@ -18,14 +18,17 @@ import {
 } from "../core/constants/backend";
 import { ServerAction } from "../core/types/ServerAction";
 import {
+    explainServerDTO,
     isServerDTO,
     ServerDTO,
 } from "../core/types/ServerDTO";
 import {
+    explainServerListDTO,
     isServerListDTO,
     ServerListDTO,
 } from "../core/types/ServerListDTO";
 import {
+    explainVncDTO,
     isVncDTO,
     VncDTO,
 } from "../core/types/VncDTO";
@@ -57,6 +60,16 @@ export class GoVmClientService {
     public static async getServerList (
         token    : EmailTokenDTO | SmsTokenDTO
     ) : Promise<readonly ServerDTO[]> {
+        const dto = await this.getServerListDTO(token);
+        return dto.payload;
+    }
+
+    /**
+     * Returns server list as a full DTO
+     */
+    public static async getServerListDTO (
+        token    : EmailTokenDTO | SmsTokenDTO
+    ) : Promise<ServerListDTO> {
         const sessionToken = GoVmClientService._getSessionToken(token);
         const response : ReadonlyJsonAny | undefined = await HttpService.getJson(
             this._apiUrl + SERVER_LIST_API_URL,
@@ -64,9 +77,9 @@ export class GoVmClientService {
         );
         if (!isServerListDTO(response)) {
             LOG.debug(`getServerList: response: `, response);
-            throw new TypeError(`Response was not ServerListDTO: ${response}`);
+            throw new TypeError(`Response was not ServerListDTO: ${explainServerListDTO(response)}`);
         }
-        return response.payload;
+        return response;
     }
 
     /**
@@ -83,7 +96,7 @@ export class GoVmClientService {
         );
         if (!isServerDTO(response)) {
             LOG.debug(`getServerById: response: `, response);
-            throw new TypeError(`Response was not ServerDTO: ${response}`);
+            throw new TypeError(`Response was not ServerDTO: ${explainServerDTO(response)}`);
         }
         return response;
     }
@@ -105,7 +118,7 @@ export class GoVmClientService {
         );
         if (!isServerListDTO(response)) {
             LOG.debug(`addServer: response: `, response);
-            throw new TypeError(`Response was not ServerListDTO: ${response}`);
+            throw new TypeError(`Response was not ServerListDTO: ${explainServerListDTO(response)}`);
         }
         return response;
     }
@@ -127,7 +140,7 @@ export class GoVmClientService {
         );
         if (!isServerDTO(response)) {
             LOG.debug(`executeServerAction: response: `, response);
-            throw new TypeError(`Response was not ServerDTO: ${response}`);
+            throw new TypeError(`Response was not ServerDTO: ${explainServerDTO(response)}`);
         }
         return response;
     }
@@ -148,7 +161,7 @@ export class GoVmClientService {
         );
         if (!isVncDTO(response)) {
             LOG.debug(`openVnc: response: `, response);
-            throw new TypeError(`Response was not VncDTO: ${response}`);
+            throw new TypeError(`Response was not VncDTO: ${explainVncDTO(response)}`);
         }
         return response;
     }
@@ -167,7 +180,7 @@ export class GoVmClientService {
         );
         if (!isVncDTO(response)) {
             LOG.debug(`closeVnc: response: `, response);
-            throw new TypeError(`Response was not VncDTO: ${response}`);
+            throw new TypeError(`Response was not VncDTO: ${explainVncDTO(response)}`);
         }
         return response;
     }

@@ -25,16 +25,24 @@ import {
     isServerDTO,
     ServerDTO,
 } from "./ServerDTO";
+import {
+    explainServerPermissionsDTO,
+    isServerPermissionsDTO,
+    ServerPermissionsDTO,
+} from "./ServerPermissionsDTO";
 
 export interface ServerListDTO {
     readonly payload: readonly ServerDTO[];
+    readonly permissions: ServerPermissionsDTO;
 }
 
 export function createServerListDTO (
     payload : readonly ServerDTO[],
+    permissions: ServerPermissionsDTO,
 ) : ServerListDTO {
     return {
         payload,
+        permissions,
     };
 }
 
@@ -43,8 +51,10 @@ export function isServerListDTO (value: unknown) : value is ServerListDTO {
         isRegularObject(value)
         && hasNoOtherKeysInDevelopment(value, [
             'payload',
+            'permissions',
         ])
         && isArrayOf<ServerDTO>(value?.payload, isServerDTO)
+        && isServerPermissionsDTO(value?.permissions)
     );
 }
 
@@ -54,8 +64,10 @@ export function explainServerListDTO (value: any) : string {
             explainRegularObject(value),
             explainNoOtherKeysInDevelopment(value, [
                 'payload',
+                'permissions',
             ])
             , explainProperty("payload", explainArrayOf<ServerDTO>("ServerDTO", explainServerDTO, value?.payload, isServerDTO))
+            , explainProperty("permissions", explainServerPermissionsDTO(value?.permissions))
         ]
     );
 }

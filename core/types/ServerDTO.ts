@@ -30,6 +30,11 @@ import {
     ServerAction,
 } from "./ServerAction";
 import {
+    explainServerPermissionsDTO,
+    isServerPermissionsDTO,
+    ServerPermissionsDTO,
+} from "./ServerPermissionsDTO";
+import {
     explainServerStatus,
     isServerStatus,
     ServerStatus,
@@ -39,17 +44,20 @@ export interface ServerDTO {
     readonly name: string;
     readonly status: ServerStatus;
     readonly actions: readonly ServerAction[];
+    readonly permissions: ServerPermissionsDTO;
 }
 
 export function createServerDTO (
     name : string,
     status : ServerStatus,
     actions : readonly ServerAction[],
+    permissions : ServerPermissionsDTO,
 ) : ServerDTO {
     return {
         name,
         status,
         actions,
+        permissions,
     };
 }
 
@@ -60,10 +68,12 @@ export function isServerDTO (value: unknown) : value is ServerDTO {
             'name',
             'status',
             'actions',
+            'permissions',
         ])
         && isString(value?.name)
         && isServerStatus(value?.status)
         && isArrayOf<ServerAction>(value?.actions, isServerAction)
+        && isServerPermissionsDTO(value?.permissions)
     );
 }
 
@@ -75,10 +85,12 @@ export function explainServerDTO (value: any) : string {
                 'name',
                 'status',
                 'actions',
+                'permissions',
             ])
             , explainProperty("name", explainString(value?.name))
             , explainProperty("status", explainServerStatus(value?.status))
             , explainProperty("actions", explainArrayOf<ServerAction>("ServerAction", explainServerAction, value?.actions, isServerAction))
+            , explainProperty("permissions", explainServerPermissionsDTO(value?.permissions))
         ]
     );
 }
