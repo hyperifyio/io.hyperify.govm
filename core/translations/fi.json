@@ -4,6 +4,7 @@
   "common.logout"                              : "Kirjaudu ulos",
   "common.open"                                : "Avaa",
   "nav.servers"                                : "Palvelimet",
+  "nav.logout"                                 : "Kirjaudu ulos",
   "app.copyright"                              : "Copyright {{COPYRIGHT_YEAR}} Sendanor",
   "dashboardMenu.nav.main"                     : "Etusivu",
   "dashboardMenu.nav.servers"                  : "Palvelimet",

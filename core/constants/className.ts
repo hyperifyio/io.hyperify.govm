@@ -8,6 +8,7 @@ export const APP_HEADER_CLASS_NAME = 'app-header';
 export const MAIN_VIEW_CLASS_NAME = 'main-view';
 export const SERVER_VIEW_CLASS_NAME = 'server-view';
 export const SERVER_LIST_VIEW_CLASS_NAME = 'server-list-view';
+export const LOGOUT_VIEW_CLASS_NAME = 'logout-view';
 export const LOGIN_VIEW_CLASS_NAME = 'login-view';
 export const APP_FOOTER_CLASS_NAME = 'app-footer';
 export const NAV_MENU_CLASS_NAME = 'nav-menu';

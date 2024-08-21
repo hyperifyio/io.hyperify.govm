@@ -3,6 +3,7 @@
 import { NavLink } from "react-router-dom";
 import { Theme } from "../../../../../core/types/Theme";
 import { TranslationFunction } from "../../../../../core/types/TranslationFunction";
+import { useAuthSession } from "../../../../../frontend/hooks/useAuthSession";
 import { SetThemeCallback } from "../../../../../frontend/hooks/useTheme";
 import {
     ACTIVATED_CLASS_NAME,
@@ -26,6 +27,8 @@ export interface AppHeaderProps {
 export function AppHeader (props: AppHeaderProps) {
     const t = props.t;
     const className = props.className;
+    const session = useAuthSession();
+    const isLoggedIn = !!session?.isLoggedIn;
     const MENU_ITEMS = useMenuItems();
     const isFixed = props?.isFixed ?? false;
     return (
@@ -48,11 +51,13 @@ export function AppHeader (props: AppHeaderProps) {
                         }
                     ><SendanorLogo /></NavLink>
 
-                    <NavMenu
-                        t={t}
-                        className={APP_HEADER_CLASS_NAME + "-nav-menu"}
-                        items={MENU_ITEMS}
-                    />
+                    {isLoggedIn ?
+                        <NavMenu
+                            t={t}
+                            className={APP_HEADER_CLASS_NAME + "-nav-menu"}
+                            items={MENU_ITEMS}
+                        />
+                        : null}
 
                 </nav>
             </header>

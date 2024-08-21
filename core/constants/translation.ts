@@ -16,6 +16,7 @@ export const T_LOGIN_VIEW_PASSWORD_PLACEHOLDER = 'loginView.password.placeholder
 export const T_LOGIN_VIEW_SUBMIT_BUTTON_LABEL = 'loginView.submitButton.label';
 export const T_LOGIN_VIEW_ERROR_MESSAGE = 'loginView.errorMessage';
 export const T_NAV_SERVERS = 'nav.servers';
+export const T_NAV_LOGOUT = 'nav.logout';
 export const T_SERVER_VIEW_TITLE = 'serverView.title';
 export const T_SERVER_VIEW_NAME_LABEL = 'serverView.name.label';
 export const T_SERVER_VIEW_STATUS_LABEL = 'serverView.status.label';

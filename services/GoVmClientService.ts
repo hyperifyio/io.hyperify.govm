@@ -15,6 +15,7 @@ import {
     SERVER_LIST_API_URL,
     OPEN_SERVER_VNC_API_URL,
     CLOSE_SERVER_VNC_API_URL,
+    LOGOUT_API_URL,
 } from "../core/constants/backend";
 import { ServerAction } from "../core/types/ServerAction";
 import {
@@ -121,6 +122,20 @@ export class GoVmClientService {
             throw new TypeError(`Response was not ServerListDTO: ${explainServerListDTO(response)}`);
         }
         return response;
+    }
+
+    /**
+     * Remove a session
+     */
+    public static async logoutSession (
+        token      : EmailTokenDTO | SmsTokenDTO
+    ) : Promise<void> {
+        const sessionToken = GoVmClientService._getSessionToken(token);
+        await HttpService.postJson(
+            this._apiUrl + LOGOUT_API_URL,
+            {},
+            GoVmClientService._createHeaders(sessionToken),
+        );
     }
 
     /**

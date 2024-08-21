@@ -14,6 +14,7 @@ import {
     ADD_SERVER_ROUTE,
     INDEX_ROUTE,
     LOGIN_ROUTE,
+    LOGOUT_ROUTE,
     MAIN_ROUTE,
     SERVER_LIST_ROUTE,
     SERVER_ROUTE,
@@ -26,6 +27,7 @@ import {
 // Layouts (see note above!)
 import { DashboardLayout } from "../layouts/dashboard/DashboardLayout";
 import { RootLayout } from "../layouts/root/RootLayout";
+import { LogoutView } from "../views/logout/LogoutView";
 
 // Views (see note above!)
 import { MainView } from "../views/main/MainView";
@@ -61,7 +63,7 @@ export function GoVmApp () {
         ),
         children: [
             {path: LOGIN_ROUTE, element: <LoginView t={t} />},
-            {path: INDEX_ROUTE, element: <Navigate to={ session?.isLoggedIn ? MAIN_ROUTE : LOGIN_ROUTE } />},
+            {path: INDEX_ROUTE, element: <Navigate to={ session?.isLoggedIn ? SERVER_LIST_ROUTE : LOGIN_ROUTE } />},
             {path: '*', element: <NotFoundView t={t} />},
         ]
     };
@@ -83,6 +85,7 @@ export function GoVmApp () {
             {path: ADD_SERVER_ROUTE, element: <AddServerView t={t} />},
             {path: SERVER_ROUTE, element: <ServerView t={t} />},
             {path: SERVER_LIST_ROUTE, element: <ServerListView t={t} />},
+            {path: LOGOUT_ROUTE, element: <LogoutView t={t} />},
             {path: MAIN_ROUTE, element: <MainView t={t} />},
             {path: '*', element: <NotFoundView t={t} />},
         ]

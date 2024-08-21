@@ -1,0 +1,26 @@
+@import "../../../styles/govm-variables";
+
+.logout-view {
+
+  box-sizing: border-box;
+  padding: $view-padding;
+  margin: 0;
+
+  & > .logout-view-title {
+    text-align: center;
+  }
+
+  & > .logout-view-form {
+    text-align: center;
+
+    & > .logout-view-button {
+      margin: 0 auto;
+    }
+
+    & > .logout-view-error {
+      margin: 32px 0;
+    }
+
+  }
+
+}

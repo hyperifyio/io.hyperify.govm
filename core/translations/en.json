@@ -4,6 +4,7 @@
   "common.logout"                              : "Logout",
   "common.open"                                : "Open",
   "nav.servers"                                : "Servers",
+  "nav.logout"                                 : "Logout",
   "app.copyright"                              : "Copyright {{COPYRIGHT_YEAR}} Sendanor",
   "dashboardMenu.nav.main"                     : "Main",
   "dashboardMenu.nav.servers"                  : "Servers",
