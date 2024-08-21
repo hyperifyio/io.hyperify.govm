@@ -38,7 +38,6 @@ import {
 } from "../../../../core/constants/translation";
 import { map } from "../../../../../core/functions/map";
 import { ServerDTO } from "../../../../core/types/ServerDTO";
-import { useServerList } from "../../../hooks/useServerList";
 import { useServerListDTO } from "../../../hooks/useServerListDTO";
 
 const LOG = LogService.createLogger( 'ServerListView' );

@@ -180,6 +180,7 @@ export function ServerView ( props: ServerViewProps) {
             } )
         }
     }, [
+        name,
         vncDTO,
         setHasError,
         refreshItemCallback,
@@ -266,6 +267,7 @@ export function ServerView ( props: ServerViewProps) {
                 vncDTO ? (
                         <div className={`${SERVER_VIEW_CLASS_NAME}-console`}>
                             <iframe
+                                title="console"
                                 id="vnc"
                                 src={vncDTO.url}
                                 width="100%"
